@@ -225,7 +225,7 @@ SERVER_PRIV_KEY=${SERVER_PRIV_KEY}
 SERVER_PUB_KEY=${SERVER_PUB_KEY}
 CLIENT_DNS_1=${CLIENT_DNS_1}
 CLIENT_DNS_2=${CLIENT_DNS_2}
-ALLOWED_IPS=${ALLOWED_IPS}" >/etc/wireguard/params1
+ALLOWED_IPS=${ALLOWED_IPS}" >/etc/wireguard/params4
 
 	# Add server interface
 	echo "[Interface]
@@ -520,9 +520,9 @@ function manageMenu() {
 # Check for root, virt, OS...
 initialCheck
 
-# Check if WireGuard is already installed and load params1
-if [[ -e /etc/wireguard/params1 ]]; then
-	source /etc/wireguard/params1
+# Check if WireGuard is already installed and load params4
+if [[ -e /etc/wireguard/params4 ]]; then
+	source /etc/wireguard/params4
 	manageMenu
 else
 	installWireGuard
