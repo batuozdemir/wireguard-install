@@ -128,7 +128,7 @@ function installQuestions() {
 	done
 
 	until [[ ${SERVER_WG_IPV4} =~ ^([0-9]{1,3}\.){3} ]]; do
-		read -rp "Server WireGuard IPv4: " -e -i 10.0.0.1 SERVER_WG_IPV4
+		read -rp "Server WireGuard IPv4: " -e -i 10.0.2.1 SERVER_WG_IPV4
 	done
 
 	until [[ ${SERVER_WG_IPV6} =~ ^([a-f0-9]{1,4}:){3,4}: ]]; do
@@ -136,7 +136,7 @@ function installQuestions() {
 	done
 
 	# Generate random number within private ports range
-	RANDOM_PORT=51822
+	RANDOM_PORT=51820
 	until [[ ${SERVER_PORT} =~ ^[0-9]+$ ]] && [ "${SERVER_PORT}" -ge 1 ] && [ "${SERVER_PORT}" -le 65535 ]; do
 		read -rp "Server WireGuard port [1-65535]: " -e -i "${RANDOM_PORT}" SERVER_PORT
 	done
