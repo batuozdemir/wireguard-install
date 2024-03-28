@@ -124,7 +124,7 @@ function installQuestions() {
 	done
 
 	until [[ ${SERVER_WG_NIC} =~ ^[a-zA-Z0-9_]+$ && ${#SERVER_WG_NIC} -lt 16 ]]; do
-		read -rp "WireGuard interface name: " -e -i wg0 SERVER_WG_NIC
+		read -rp "WireGuard interface name: " -e -i wg0e SERVER_WG_NIC
 	done
 
 	until [[ ${SERVER_WG_IPV4} =~ ^([0-9]{1,3}\.){3} ]]; do
@@ -225,7 +225,7 @@ SERVER_PRIV_KEY=${SERVER_PRIV_KEY}
 SERVER_PUB_KEY=${SERVER_PUB_KEY}
 CLIENT_DNS_1=${CLIENT_DNS_1}
 CLIENT_DNS_2=${CLIENT_DNS_2}
-ALLOWED_IPS=${ALLOWED_IPS}" >/etc/wireguard/params
+ALLOWED_IPS=${ALLOWED_IPS}" >/etc/wireguard/params1
 
 	# Add server interface
 	echo "[Interface]
@@ -520,9 +520,9 @@ function manageMenu() {
 # Check for root, virt, OS...
 initialCheck
 
-# Check if WireGuard is already installed and load params
-if [[ -e /etc/wireguard/params ]]; then
-	source /etc/wireguard/params
+# Check if WireGuard is already installed and load params1
+if [[ -e /etc/wireguard/params1 ]]; then
+	source /etc/wireguard/params1
 	manageMenu
 else
 	installWireGuard
